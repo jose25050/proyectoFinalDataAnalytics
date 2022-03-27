@@ -12,7 +12,6 @@ data_url = "data/ifood_df_eda.csv"
 @st.cache
 def load_data(data_url):
     data = pd.read_csv(data_url)
-    data["IncomeOrder"] = pd.cut(data["Income"], bins = 4)
     return data
 
 # abriendo el dataset
@@ -178,6 +177,7 @@ de clientes que cuenta la empresa.""")
 
 ## Tercera pregunta de exploración
 
+data["IncomeOrder"] = pd.cut(data["Income"], bins = 4)
 data_group_income =  pd.crosstab(data_report["IncomeOrder"],data_report["Response"], normalize='index').rename(columns = {0 : "Rechazan", 1: "Aceptan"}).reset_index()
 data_group_income.IncomeOrder = data_group_income.IncomeOrder.astype(str)
 

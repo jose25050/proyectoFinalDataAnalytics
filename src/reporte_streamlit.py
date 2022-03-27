@@ -9,7 +9,7 @@ from PIL import Image
 ## Creando la función para abrir el archivo
 
 data_url = "data/ifood_df_eda.csv"
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_data(data_url):
     data = pd.read_csv(data_url)
     return data

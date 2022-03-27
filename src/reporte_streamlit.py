@@ -167,10 +167,10 @@ AcceptedCmp2 = ('AcceptedCmp2',"sum"),
 AcceptedCmp3 = ('AcceptedCmp3',"sum"),
 AcceptedCmp4 = ('AcceptedCmp4',"sum"),
 AcceptedCmp5 = ('AcceptedCmp5',"sum")
-).sort_index()
+).sort_index().style.background_gradient(cmap='PuBu')
 
 st.text("¿cuantas campañas en promedio se aceptaron según nivel de ingreso?")
-st.table(tabla1)
+st.dataframe(tabla1)
 
 st.markdown("""Las personas con ingresos medios altos son las personas 
 que más dispuestos están de aceptar una oferta de una campaña de IFood, es decir, son los principales grupo

@@ -160,6 +160,8 @@ st.markdown("""Podemos observar que las personas que aceptaron una campaña ante
  aceptaron una campaña anteriormente son más propensos a no aceptar la campaña piloto.""")
 
 ## Segunda pregunta de exploración
+data_report["IncomeOrder"] = pd.cut(data_report["Income"], bins = 4)
+data_report.IncomeOrder = data_report.IncomeOrder.astype(str)
 
 tabla1 = data_report.groupby("IncomeOrder").agg(AcceptedCmp1 = ('AcceptedCmp1',"sum"),
 AcceptedCmp2 = ('AcceptedCmp2',"sum"),
@@ -169,7 +171,7 @@ AcceptedCmp5 = ('AcceptedCmp5',"sum")
 ).sort_index()
 
 st.text("¿cuantas campañas en promedio se aceptaron según nivel de ingreso?")
-st.dataframe(tabla1)
+st.table(tabla1)
 
 st.markdown("""Las personas con ingresos medios altos son las personas 
 que más dispuestos están de aceptar una oferta de una campaña de IFood, es decir, son los principales grupo
@@ -177,7 +179,7 @@ de clientes que cuenta la empresa.""")
 
 ## Tercera pregunta de exploración
 
-data_report["IncomeOrder"] = pd.cut(data_report["Income"], bins = 4)
+
 data_group_income =  pd.crosstab(data_report["IncomeOrder"],data_report["Response"], normalize='index').rename(columns = {0 : "Rechazan", 1: "Aceptan"}).reset_index()
 data_group_income.IncomeOrder = data_group_income.IncomeOrder.astype(str)
 

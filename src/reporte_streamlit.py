@@ -265,11 +265,11 @@ que maneja la empresa, pero que son productos más cotizados para ellos.*""")
 
 data_tercer = data_report.groupby("marital_status").mean()[["MntWines","MntFruits","MntMeatProducts","MntFishProducts","MntSweetProducts","MntGoldProds"]] /24
 
-data_tercer = data_tercer.T.style.background_gradient(cmap='PuBu')
+data_tercer = data_tercer.T
 
 data_cuarto = data_report.groupby("Education").mean()[["MntWines","MntFruits","MntMeatProducts","MntFishProducts","MntSweetProducts","MntGoldProds"]] /24
 
-data_cuarto = data_cuarto.T.style.background_gradient(cmap='PuBu')
+data_cuarto = data_cuarto.T
 
 st.text("¿Qué producto gastan más los clientes según estado civil?")
 

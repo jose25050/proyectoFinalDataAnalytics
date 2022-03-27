@@ -167,7 +167,7 @@ AcceptedCmp2 = ('AcceptedCmp2',"sum"),
 AcceptedCmp3 = ('AcceptedCmp3',"sum"),
 AcceptedCmp4 = ('AcceptedCmp4',"sum"),
 AcceptedCmp5 = ('AcceptedCmp5',"sum")
-).sort_index().style.background_gradient(cmap='PuBu')
+).sort_index()
 
 st.text("¿cuantas campañas en promedio se aceptaron según nivel de ingreso?")
 st.dataframe(tabla1)

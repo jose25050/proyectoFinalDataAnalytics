@@ -177,7 +177,7 @@ de clientes que cuenta la empresa.""")
 
 ## Tercera pregunta de exploración
 
-data["IncomeOrder"] = pd.cut(data["Income"], bins = 4)
+data_report["IncomeOrder"] = pd.cut(data_report["Income"], bins = 4)
 data_group_income =  pd.crosstab(data_report["IncomeOrder"],data_report["Response"], normalize='index').rename(columns = {0 : "Rechazan", 1: "Aceptan"}).reset_index()
 data_group_income.IncomeOrder = data_group_income.IncomeOrder.astype(str)
 
